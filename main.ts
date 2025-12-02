@@ -14,27 +14,11 @@ server.tool(
         city: z.string().describe('City name')
     },
     async ({ city }) => {
-        const coordinatesResponse = await fetch(`https://geocoding-api.open-meteo.com/v1/search?name=${city}&count=10&language=en&format=json`);
-        const coordinatesData = await coordinatesResponse.json();
-
-        if (coordinatesData.length === 0) {
-            return {
-                content: [
-                    {   type: 'text',
-                        text: `No se encontró información meteorológica para ${city}.`
-                    }
-                ]
-            };
-        }
-        const  {latitude, longitude} = coordinatesData.results[0];
-        const weatherResponse = await fetch(`https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&hourly=temperature_2m&current=temperature_2m,precipitation,is_day,rain&forecast_days=1`)
-        const weatherData = await weatherResponse.json();
-
         return {
             content: [
                 {
                     type: 'text',
-                    text: JSON.stringify(weatherData, null, 2)
+                    text: `El tiempo en ${city} es soleado.`
                 }
             ]
         }
