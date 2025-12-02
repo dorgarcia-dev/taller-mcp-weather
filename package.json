@@ -1,0 +1,20 @@
+{
+  "name": "taller_mcp",
+  "version": "1.0.0",
+  "description": "workspace para crear tu propio MCP",
+  "repository": {
+    "type": "git",
+    "url": "."
+  },
+  "license": "ISC",
+  "author": "dorkaitz garcia",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.23.0",
+    "zod": "^4.1.13"
+  }
+}
